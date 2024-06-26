@@ -5,210 +5,262 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Inscripción</title>
     <script>
-        const materias = {
-            'Ingenieria Industrial': [
-                'razonamiento cuantitativo',
-                'Constitución política',
-                'Comprensión y producción textual 1',
-                'Inglés 1',
-                'Fundamentos de tic',
-                'Introducción a la ingeniería',
-                'Curso I campo sociopolítico, filosófico y humanístico',
-                'Comprensión y producción textual 2',
-                'Inglés 2',
-                'Matemática fundamental',
-                'Química y laboratorio',
-                'Ensamiento sistémico',
-                'Algoritmos y programación',
-                'Curso II campo sociopolítico, filosófico y humanístico',
-                'Inglés 3',
-                'calculo 1',
-                'Física y laboratorio 1',
-                'Álgebra lineal',
-                'Teoría organizacional',
-                'Curso II campo científico natural',
-                'Inglés 4',
-                'Calculo 2',
-                'Física y laboratorio 2',
-                'Resistencia de materiales',
-                'Economía',
-                'ecuaciones diferenciales',
-                'Proyecto integrador básico',
-                'Electiva de área 1 (estadística 2)',
-                'Procesos y materiales',
-                'Métodos y diseños de trabajos',
-                'Ingeniería de costos',
-                'Gerencia estratégica de operaciones',
-                'Curso I campo investigativo',
-                'Gestión de calidad',
-                'Laboratorio de procesos',
-                'Investigación de operaciones 1',
-                'Ingeniería económica',
-                'Mercadeo',
-                'Productividad humana',
-                'Curso III campo científico natural',
-                'Electiva de área 2 (proyectos de ingeniería)',
-                'Investigación de operaciones 2',
-                'Operaciones 1',
-                'Seguridad y salud en el trabajo',
-                'Gestión financiera',
-                'Logística',
-                'Operaciones 2',
-                'Gestión de proyectos de ingeniería',
-                'Fundamentos de gestión de tecnología',
-                'Electiva de profundización 1',
-                'Electiva de profundización 2',
-                'Proyecto integrador profesional',
-                'Práctica profesional',
-                'Distribución de planta',
-                'Simulación discreta',
-                'Electiva de profundización 3',
-                'Curso I campo de gestión',
-                'Proyecto integrador de grado',
-                'Electiva de profundización 4',
-                'Electiva de profundización 5',
-                'Electiva de profundización 6'
-            ],
-            'Ingenieria En Sistemas': [
-                'matemáticas fundamentales',
-                'introducción a la ingeniería',
-                'pensamiento sistémico',
-                'matemáticas discretas',
-                'algoritmos y programación I',
-                'cálculo I',
-                'física y laboratorio I',
-                'algoritmos y programación II',
-                'algebra lineal',
-                'estadística y probabilidad',
-                'inglés I',
-                'cálculo II',
-                'física y laboratorio II',
-                'fundamentos de sistemas de información',
-                'estructura de datos',
-                'inglés II',
-                'ecuaciones diferenciales',
-                'proyecto integrador básico',
-                'bases de datos',
-                'análisis de algoritmos',
-                'inglés III',
-                'electiva de área I',
-                'autómatas y lenguajes formales',
-                'ingeniería de software I',
-                'arquitectura de tecnología informática',
-                'inglés IV',
-                'razonamiento cuantitativo',
-                'constitución política',
-                'redes y comunicaciones',
-                'ingeniería de software II',
-                'arquitectura de computadores',
-                'lenguajes de programación',
-                'sistemas operativos',
-                'inteligencia artificial',
-                'redes inalámbricas',
-                'arquitectura de software',
-                'gestión de proyectos de ti',
-                'proyecto integrador profesional',
-                'investigación de operaciones',
-                'computación móvil',
-                'programación orientada a la web',
-                'gobierno y servicios de ti',
-                'electiva de profundización I',
-                'electiva de profundización II',
-                'seguridad en redes',
-                'electiva de profundización III',
-                'arquitectura empresarial',
-                'electiva de profundización IV',
-                'electiva de profundización V',
-                'electiva de profundización VI',
-                'proyecto integrador de grado'
-            ],
-            'Tecnología En Desarrollo De Sistemas': [
-                'matemáticas fundamentales',
-                'introducción a la tecnología',
-                'pensamiento computacional',
-                'algoritmos y programación I',
-                'mantenimiento y ensamble de hardware',
-                'cálculo',
-                'electiva de área',
-                'inglés I',
-                'algoritmos y programación II',
-                'probabilidad y estadística I',
-                'inglés II',
-                'fundamentos de física',
-                'construccion de software I',
-                'estructura de datos',
-                'laboratorio de bases de datos',
-                'inglés III',
-                'redes y comunicaciones',
-                'construcción de software II',
-                'programación orientada a la web',
-                'administración de información',
-                'inglés IV',
-                'razonamiento cuantitativo',
-                'constitución política',
-                'programación de dispositivos móviles',
-                'electiva I',
-                'administración de sistemas operativos',
-                'proyecto de grado',
-                'práctica profesional',
-                'seguridad informática',
-                'diseño de experiencias de usuario',
-                'electiva II'
-            ]
-        };
-
         function updateMaterias() {
             const programa = document.getElementById('nombrePrograma').value;
-            const materiaSelects = document.querySelectorAll('select[name^="materia"]');
-
-            materiaSelects.forEach(select => {
-                // Clear current options
-                select.innerHTML = '';
-                // Add new options
-                materias[programa].forEach(materia => {
-                    const option = document.createElement('option');
-                    option.value = materia;
-                    option.text = materia;
-                    select.appendChild(option);
-                });
-            });
+            const materias = {
+                'Ingenieria Industrial': [
+                    'Razonamiento Cuantitativo',
+                    'Constitución Política',
+                    'Comprensión y Producción Textual 1',
+                    'Inglés 1',
+                    'Fundamentos de TIC',
+                    'Introducción a la Ingeniería',
+                    'Curso I Campo Sociopolítico, Filosófico y Humanístico',
+                    'Comprensión y Producción Textual 2',
+                    'Inglés 2',
+                    'Matemática Fundamental',
+                    'Química y Laboratorio',
+                    'Pensamiento Sistémico',
+                    'Algoritmos y Programación',
+                    'Curso II Campo Sociopolítico, Filosófico y Humanístico',
+                    'Inglés 3',
+                    'Cálculo 1',
+                    'Física y Laboratorio 1',
+                    'Álgebra Lineal',
+                    'Teoría Organizacional',
+                    'Curso II Campo Científico Natural',
+                    'Inglés 4',
+                    'Cálculo 2',
+                    'Física y Laboratorio 2',
+                    'Resistencia de Materiales',
+                    'Economía',
+                    'Ecuaciones Diferenciales',
+                    'Proyecto Integrador Básico',
+                    'Electiva de Área 1 (Estadística 2)',
+                    'Procesos y Materiales',
+                    'Métodos y Diseños de Trabajos',
+                    'Ingeniería de Costos',
+                    'Gerencia Estratégica de Operaciones',
+                    'Curso I Campo Investigativo',
+                    'Gestión de Calidad',
+                    'Laboratorio de Procesos',
+                    'Investigación de Operaciones 1',
+                    'Ingeniería Económica',
+                    'Mercadeo',
+                    'Productividad Humana',
+                    'Curso III Campo Científico Natural',
+                    'Electiva de Área 2 (Proyectos de Ingeniería)',
+                    'Investigación de Operaciones 2',
+                    'Operaciones 1',
+                    'Seguridad y Salud en el Trabajo',
+                    'Gestión Financiera',
+                    'Logística',
+                    'Operaciones 2',
+                    'Gestión de Proyectos de Ingeniería',
+                    'Fundamentos de Gestión de Tecnología',
+                    'Electiva de Profundización 1',
+                    'Electiva de Profundización 2',
+                    'Proyecto Integrador Profesional',
+                    'Práctica Profesional',
+                    'Distribución de Planta',
+                    'Simulación Discreta',
+                    'Electiva de Profundización 3',
+                    'Curso I Campo de Gestión',
+                    'Proyecto Integrador de Grado',
+                    'Electiva de Profundización 4',
+                    'Electiva de Profundización 5',
+                    'Electiva de Profundización 6'
+                ],
+                'Ingenieria En Sistemas': [
+                    'Matemáticas Fundamentales',
+                    'Introducción a la Ingeniería',
+                    'Pensamiento Sistémico',
+                    'Matemáticas Discretas',
+                    'Algoritmos y Programación I',
+                    'Cálculo I',
+                    'Física y Laboratorio I',
+                    'Algoritmos y Programación II',
+                    'Álgebra Lineal',
+                    'Estadística y Probabilidad',
+                    'Inglés I',
+                    'Cálculo II',
+                    'Física y Laboratorio II',
+                    'Fundamentos de Sistemas de Información',
+                    'Estructura de Datos',
+                    'Inglés II',
+                    'Ecuaciones Diferenciales',
+                    'Proyecto Integrador Básico',
+                    'Bases de Datos',
+                    'Análisis de Algoritmos',
+                    'Inglés III',
+                    'Electiva de Área I',
+                    'Autómatas y Lenguajes Formales',
+                    'Ingeniería de Software I',
+                    'Arquitectura de Tecnología Informática',
+                    'Inglés IV',
+                    'Razonamiento Cuantitativo',
+                    'Constitución Política',
+                    'Redes y Comunicaciones',
+                    'Ingeniería de Software II',
+                    'Arquitectura de Computadores',
+                    'Lenguajes de Programación',
+                    'Sistemas Operativos',
+                    'Inteligencia Artificial',
+                    'Redes Inalámbricas',
+                    'Arquitectura de Software',
+                    'Gestión de Proyectos de TI',
+                    'Proyecto Integrador Profesional',
+                    'Investigación de Operaciones',
+                    'Computación Móvil',
+                    'Programación Orientada a la Web',
+                    'Gobierno y Servicios de TI',
+                    'Electiva de Profundización I',
+                    'Electiva de Profundización II',
+                    'Seguridad en Redes',
+                    'Electiva de Profundización III',
+                    'Arquitectura Empresarial',
+                    'Electiva de Profundización IV',
+                    'Electiva de Profundización V',
+                    'Electiva de Profundización VI',
+                    'Proyecto Integrador de Grado'
+                ],
+                'Tecnología En Desarrollo De Sistemas': [
+                    'Matemáticas Fundamentales',
+                    'Introducción a la Tecnología',
+                    'Pensamiento Computacional',
+                    'Algoritmos y Programación I',
+                    'Mantenimiento y Ensamble de Hardware',
+                    'Cálculo',
+                    'Electiva de Área',
+                    'Inglés I',
+                    'Algoritmos y Programación II',
+                    'Probabilidad y Estadística I',
+                    'Inglés II',
+                    'Fundamentos de Física',
+                    'Construcción de Software I',
+                    'Estructura de Datos',
+                    'Laboratorio de Bases de Datos',
+                    'Inglés III',
+                    'Redes y Comunicaciones',
+                    'Construcción de Software II',
+                    'Programación Orientada a la Web',
+                    'Administración de Información',
+                    'Inglés IV',
+                    'Razonamiento Cuantitativo',
+                    'Constitución Política',
+                    'Programación de Dispositivos Móviles',
+                    'Electiva I',
+                    'Administración de Sistemas Operativos',
+                    'Proyecto de Grado',
+                    'Práctica Profesional',
+                    'Seguridad Informática',
+                    'Diseño de Experiencias de Usuario',
+                    'Electiva II'
+                ]
+            };
+            for (let i = 1; i <= 7; i++) {
+                const materiaSelect = document.getElementById('materia' + i);
+                materiaSelect.innerHTML = '';
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.text = 'Seleccione una materia';
+                materiaSelect.appendChild(defaultOption);
+                if (programa && materias[programa]) {
+                    materias[programa].forEach(materia => {
+                        const option = document.createElement('option');
+                        option.value = materia;
+                        option.text = materia;
+                        materiaSelect.appendChild(option);
+                    });
+                }
+            }
         }
     </script>
 </head>
 <body>
-    <form id="formularioInscripcion" method="post" action="insercion.php">
-        <!-- Otros campos del formulario -->
-        <label for="nombrePrograma">Nombre del Programa:</label>
-        <select id="nombrePrograma" name="nombrePrograma" onchange="updateMaterias()">
-            <option value="Ingenieria Industrial">Ingenieria Industrial</option>
-            <option value="Ingenieria En Sistemas">Ingenieria En Sistemas</option>
-            <option value="Tecnología En Desarrollo De Sistemas">Tecnología En Desarrollo De Sistemas</option>
-        </select>
+    <form action="" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
 
-        <!-- Campos para seleccionar las materias -->
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required><br><br>
+
+        <label for="numeroIdentificacion">Número de Identificación:</label>
+        <input type="text" id="numeroIdentificacion" name="numeroIdentificacion" required><br><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required><br><br>
+
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero" required>
+            <option value="Mujer">Mujer</option>
+            <option value="Hombre">Hombre</option>
+            <option value="Otro">Otro</option>
+        </select><br><br>
+
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" required><br><br>
+
+        <label for="numeroCelular">Número de Celular:</label>
+        <input type="text" id="numeroCelular" name="numeroCelular" required><br><br>
+
+        <label for="nombrePrograma">Nombre del Programa:</label>
+        <select id="nombrePrograma" name="nombrePrograma" onchange="updateMaterias()" required>
+            <option value="">Seleccione un programa</option>
+            <option value="Ingenieria Industrial">Ingeniería Industrial</option>
+            <option value="Ingenieria En Sistemas">Ingeniería en Sistemas</option>
+            <option value="Tecnología En Desarrollo De Sistemas">Tecnología en Desarrollo de Sistemas</option>
+        </select><br><br>
+
+        <label for="semestre">Semestre:</label>
+        <input type="number" id="semestre" name="semestre" required><br><br>
+
+        <label for="jornada">Jornada:</label>
+        <select id="jornada" name="jornada" required>
+            <option value="Diurna">Diurna</option>
+            <option value="Nocturna">Nocturna</option>
+            <option value="Mixta">Mixta</option>
+        </select><br><br>
+
         <label for="materia1">Materia 1:</label>
-        <select name="materia1" id="materia1"></select>
+        <select id="materia1" name="materia1" required>
+            <option value="">Seleccione una materia</option>
+        </select><br><br>
 
         <label for="materia2">Materia 2:</label>
-        <select name="materia2" id="materia2"></select>
+        <select id="materia2" name="materia2" required>
+            <option value="">Seleccione una materia</option>
+        </select><br><br>
 
         <label for="materia3">Materia 3:</label>
-        <select name="materia3" id="materia3"></select>
+        <select id="materia3" name="materia3" required>
+            <option value="">Seleccione una materia</option>
+        </select><br><br>
 
         <label for="materia4">Materia 4:</label>
-        <select name="materia4" id="materia4"></select>
+        <select id="materia4" name="materia4" required>
+            <option value="">Seleccione una materia</option>
+        </select><br><br>
 
         <label for="materia5">Materia 5:</label>
-        <select name="materia5" id="materia5"></select>
+        <select id="materia5" name="materia5" required>
+            <option value="">Seleccione una materia</option>
+        </select><br><br>
 
         <label for="materia6">Materia 6:</label>
-        <select name="materia6" id="materia6"></select>
+        <select id="materia6" name="materia6" required>
+            <option value="">Seleccione una materia</option>
+        </select><br><br>
 
         <label for="materia7">Materia 7:</label>
-        <select name="materia7" id="materia7"></select>
+        <select id="materia7" name="materia7" required>
+            <option value="">Seleccione una materia</option>
+        </select><br><br>
 
-        <!-- Otros campos del formulario -->
-        <button type="submit">Enviar</button>
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>" readonly><br><br>
+
+        <input type="submit" value="Enviar">
     </form>
 </body>
 </html>
