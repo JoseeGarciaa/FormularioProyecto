@@ -1,9 +1,9 @@
 <?php
-$servername = "roundhouse.proxy.rlwy.net";
-$username = "root";
-$password = "xevACkoMYkhovGUpFykFmEVStdCzQlbf";
-$dbname = "railway";
-$port = 50768;
+$servername = getenv('DB_HOST');
+$username = getenv('DB_USER');
+$password = getenv('DB_PASSWORD');
+$dbname = getenv('DB_NAME');
+$port = getenv('DB_PORT');
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
