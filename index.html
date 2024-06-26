@@ -29,6 +29,13 @@
                 }
             }
         }
+
+        function setDefaultDate() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('fecha').value = today;
+        }
+
+        window.onload = setDefaultDate;
     </script>
 </head>
 <body>
@@ -112,7 +119,7 @@
         </select><br><br>
 
         <label for="fecha">Fecha:</label>
-        <input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>" readonly><br><br>
+        <input type="date" id="fecha" name="fecha" readonly><br><br>
 
         <input type="submit" value="Enviar">
     </form>
