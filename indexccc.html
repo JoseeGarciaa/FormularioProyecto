@@ -8,9 +8,7 @@
         function updateMaterias() {
             const programa = document.getElementById('nombrePrograma').value;
             const materias = {
-                'Programa 1': [
-                    'Materia A', 'Materia B'
-                ], 
+                'Programa 1': ['Materia A', 'Materia B'], 
                 'Ingeniería Industrial': [
                     'Razonamiento Cuantitativo',
                     'Constitución Política',
@@ -179,32 +177,23 @@
             }
         }
 
-        // Función para obtener la fecha actual en formato YYYY-MM-DD
         function getCurrentDate() {
             const today = new Date();
             const year = today.getFullYear();
             let month = today.getMonth() + 1;
             let day = today.getDate();
-
-            // Asegurar que el mes y el día tengan dos dígitos
-            if (month < 10) {
-                month = '0' + month;
-            }
-            if (day < 10) {
-                day = '0' + day;
-            }
-
+            if (month < 10) month = '0' + month;
+            if (day < 10) day = '0' + day;
             return year + '-' + month + '-' + day;
         }
 
-        // Establecer la fecha actual en el campo de fecha al cargar la página
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('fecha').value = getCurrentDate();
         });
     </script>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="formulario_inscripcion.php" method="post">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required><br><br>
 
@@ -291,7 +280,6 @@
     </form>
 
     <script>
-        // Setear la fecha actual al cargar la página
         document.getElementById('fecha').value = getCurrentDate();
     </script>
 </body>
