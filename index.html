@@ -175,6 +175,29 @@
                 }
             }
         }
+
+        // Función para obtener la fecha actual en formato YYYY-MM-DD
+        function getCurrentDate() {
+            const today = new Date();
+            const year = today.getFullYear();
+            let month = today.getMonth() + 1;
+            let day = today.getDate();
+
+            // Asegurar que el mes y el día tengan dos dígitos
+            if (month < 10) {
+                month = '0' + month;
+            }
+            if (day < 10) {
+                day = '0' + day;
+            }
+
+            return year + '-' + month + '-' + day;
+        }
+
+        // Establecer la fecha actual en el campo de fecha al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('fecha').value = getCurrentDate();
+        });
     </script>
 </head>
 <body>
@@ -258,9 +281,14 @@
         </select><br><br>
 
         <label for="fecha">Fecha:</label>
-        <input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>" readonly><br><br>
+        <input type="date" id="fecha" name="fecha" readonly><br><br>
 
         <input type="submit" value="Enviar">
     </form>
+
+    <script>
+        // Setear la fecha actual al cargar la página
+        document.getElementById('fecha').value = getCurrentDate();
+    </script>
 </body>
 </html>
