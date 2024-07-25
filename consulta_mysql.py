@@ -20,7 +20,24 @@ def obtener_datos():
     )
 
     # Realizar una consulta
-    consulta = "SELECT * FROM FormularioInscripcion"
+    consulta = "SELECT Materia, COUNT(*) AS Cantidad
+FROM (
+    SELECT Materia1 AS Materia FROM railway.FormularioInscripcion
+    UNION ALL
+    SELECT Materia2 FROM railway.FormularioInscripcion
+    UNION ALL
+    SELECT Materia3 FROM railway.FormularioInscripcion
+    UNION ALL
+    SELECT Materia4 FROM railway.FormularioInscripcion
+    UNION ALL
+    SELECT Materia5 FROM railway.FormularioInscripcion
+    UNION ALL
+    SELECT Materia6 FROM railway.FormularioInscripcion
+    UNION ALL
+    SELECT Materia7 FROM railway.FormularioInscripcion
+) AS Materias
+GROUP BY Materia
+ORDER BY Cantidad DESC;"
     df = pd.read_sql_query(consulta, conexion)
 
     # Cerrar la conexión
