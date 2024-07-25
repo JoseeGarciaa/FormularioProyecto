@@ -12,7 +12,9 @@ def generar_grafica():
     plt.xlabel('Etiqueta del eje X')
     plt.ylabel('Etiqueta del eje Y')
     plt.grid(True)
-    plt.show()
+    
+    # Guardar la gráfica como un archivo
+    plt.savefig('grafica.png')
 
 if __name__ == "__main__":
     generar_grafica()
