@@ -20,7 +20,7 @@ def obtener_datos():
     )
 
     # Realizar una consulta
-    consulta = "SELECT * FROM FormularioInscripcio"
+    consulta = "SELECT * FROM FormularioInscripcion"
     df = pd.read_sql_query(consulta, conexion)
 
     # Cerrar la conexión
