@@ -5,16 +5,20 @@ def generar_grafica():
     # Obtener los datos
     df = obtener_datos()
 
+    # Verificar las columnas
+    print(df.columns)
+
     # Crear una gráfica
     plt.figure(figsize=(10, 6))
-    plt.plot(df['columna_x'], df['columna_y'], marker='o')
-    plt.title('Título de la gráfica')
-    plt.xlabel('Etiqueta del eje X')
-    plt.ylabel('Etiqueta del eje Y')
+    plt.bar(df['Materia'], df['Cantidad'])
+    plt.title('Cantidad de Registros por Materia')
+    plt.xlabel('Materia')
+    plt.ylabel('Cantidad')
+    plt.xticks(rotation=45)
     plt.grid(True)
     
     # Guardar la gráfica como un archivo
     plt.savefig('grafica.png')
 
 if __name__ == "__main__":
-    generar_grafica()
+        generar_grafica()
