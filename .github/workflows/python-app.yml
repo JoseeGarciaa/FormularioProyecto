@@ -2,6 +2,9 @@ name: Python application
 
 on: [push]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,13 +21,19 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pymysql pandas matplotlib python-dotenv
+        pip install pymysql pandas matplotlib sqlalchemy python-dotenv
 
     - name: Run consulta_mysql.py
       run: python consulta_mysql.py
 
     - name: Run generar_grafica.py
       run: python generar_grafica.py
+
+    - name: Upload graph
+      uses: actions/upload-artifact@v3
+      with:
+        name: grafica
+        path: grafica.png
 
     - name: Commit and push changes
       run: |
@@ -34,4 +43,4 @@ jobs:
         git commit -m "Update generated graph"
         git push
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
