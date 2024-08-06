@@ -9,7 +9,7 @@ def generar_grafica():
     print(df.columns)
 
     # Crear una gráfica
-    plt.figure(figsize=(17, 10))  # Aumentar el tamaño
+    plt.figure(figsize=(18, 10))  # Aumentar el tamaño
     plt.bar(df['Materia'], df['Cantidad'])
     plt.title('Cantidad de Registros por Materia')
     plt.xlabel('Materia')
