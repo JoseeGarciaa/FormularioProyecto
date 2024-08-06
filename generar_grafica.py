@@ -9,16 +9,18 @@ def generar_grafica():
     print(df.columns)
 
     # Crear una gráfica
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(12, 8))  # Aumentar el tamaño
     plt.bar(df['Materia'], df['Cantidad'])
     plt.title('Cantidad de Registros por Materia')
     plt.xlabel('Materia')
     plt.ylabel('Cantidad')
-    plt.xticks(rotation=45)
+    plt.xticks(rotation=60, ha='right', fontsize=10)  # Rotar a 60 grados y alinear a la derecha
     plt.grid(True)
+    
+    plt.tight_layout()  # Ajustar automáticamente el layout
     
     # Guardar la gráfica como un archivo
     plt.savefig('grafica.png')
 
 if __name__ == "__main__":
-        generar_grafica()
+        generar_grafica() 
