@@ -21,7 +21,7 @@ def obtener_datos():
 
     # Realizar una consulta
     consulta = """
-    SELECT Materia, COUNT(*) AS Cantidad
+SELECT Materia, COUNT(*) AS Cantidad
     FROM (
         SELECT Materia1 AS Materia FROM railway.FormularioInscripcion
         UNION ALL
@@ -37,6 +37,7 @@ def obtener_datos():
         UNION ALL
         SELECT Materia7 FROM railway.FormularioInscripcion
     ) AS Materias
+    WHERE Materia <> ''
     GROUP BY Materia
     ORDER BY Cantidad DESC;
     """
