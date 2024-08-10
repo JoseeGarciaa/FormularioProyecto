@@ -53,9 +53,3 @@ if __name__ == "__main__":
     # Mostrar la tabla en la consola
     print("Tabla de Materias:")
     print(datos.to_string(index=False))
-    
-    # Guardar la tabla en un archivo CSV
-    archivo_csv = 'materias_por_cantidad.csv'
-    datos.to_csv(archivo_csv, index=False)
-    print(f"Datos guardados en {archivo_csv}")
-
