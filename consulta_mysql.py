@@ -1,5 +1,6 @@
 import pymysql
 import pandas as pd
+import os
 
 def obtener_datos():
     # Variables de conexión
@@ -49,7 +50,4 @@ SELECT Materia, COUNT(*) AS Cantidad
 
 if __name__ == "__main__":
     datos = obtener_datos()
-    
-    # Mostrar la tabla en la consola
-    print("Tabla de Materias:")
-    print(datos.to_string(index=False))
+    print(datos.head())
