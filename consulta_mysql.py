@@ -51,3 +51,5 @@ SELECT Materia, COUNT(*) AS Cantidad
 if __name__ == "__main__":
     datos = obtener_datos()
     print(datos.head())
+
+
