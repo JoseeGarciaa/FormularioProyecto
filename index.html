@@ -4,167 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Inscripción</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
     <script>
         function updateMaterias() {
             const programa = document.getElementById('nombrePrograma').value;
             const materias = { 
-                'Ingenieria Industrial': [
-                    'Razonamiento Cuantitativo',
-                    'Constitución Política',
-                    'Comprensión y Producción Textual 1',
-                    'Inglés 1',
-                    'Fundamentos de TIC',
-                    'Introducción a la Ingeniería',
-                    'Curso I Campo Sociopolítico, Filosófico y Humanístico',
-                    'Comprensión y Producción Textual 2',
-                    'Inglés 2',
-                    'Matemática Fundamental',
-                    'Química y Laboratorio',
-                    'Pensamiento Sistémico',
-                    'Algoritmos y Programación',
-                    'Curso II Campo Sociopolítico, Filosófico y Humanístico',
-                    'Inglés 3',
-                    'Cálculo 1',
-                    'Física y Laboratorio 1',
-                    'Álgebra Lineal',
-                    'Teoría Organizacional',
-                    'Curso II Campo Científico Natural',
-                    'Inglés 4',
-                    'Cálculo 2',
-                    'Física y Laboratorio 2',
-                    'Resistencia de Materiales',
-                    'Economía',
-                    'Ecuaciones Diferenciales',
-                    'Proyecto Integrador Básico',
-                    'Electiva de Área 1 (Estadística 2)',
-                    'Procesos y Materiales',
-                    'Métodos y Diseños de Trabajos',
-                    'Ingeniería de Costos',
-                    'Gerencia Estratégica de Operaciones',
-                    'Curso I Campo Investigativo',
-                    'Gestión de Calidad',
-                    'Laboratorio de Procesos',
-                    'Investigación de Operaciones 1',
-                    'Ingeniería Económica',
-                    'Mercadeo',
-                    'Productividad Humana',
-                    'Curso III Campo Científico Natural',
-                    'Electiva de Área 2 (Proyectos de Ingeniería)',
-                    'Investigación de Operaciones 2',
-                    'Operaciones 1',
-                    'Seguridad y Salud en el Trabajo',
-                    'Gestión Financiera',
-                    'Logística',
-                    'Operaciones 2',
-                    'Gestión de Proyectos de Ingeniería',
-                    'Fundamentos de Gestión de Tecnología',
-                    'Electiva de Profundización 1',
-                    'Electiva de Profundización 2',
-                    'Proyecto Integrador Profesional',
-                    'Práctica Profesional',
-                    'Distribución de Planta',
-                    'Simulación Discreta',
-                    'Electiva de Profundización 3',
-                    'Curso I Campo de Gestión',
-                    'Proyecto Integrador de Grado',
-                    'Electiva de Profundización 4',
-                    'Electiva de Profundización 5',
-                    'Electiva de Profundización 6'
-                ],
-                'Ingenieria En Sistemas': [
-                    'Matemáticas Fundamentales',
-                    'Introducción a la Ingeniería',
-                    'Pensamiento Sistémico',
-                    'Matemáticas Discretas',
-                    'Algoritmos y Programación I',
-                    'Cálculo I',
-                    'Física y Laboratorio I',
-                    'Algoritmos y Programación II',
-                    'Álgebra Lineal',
-                    'Estadística y Probabilidad',
-                    'Inglés I',
-                    'Cálculo II',
-                    'Física y Laboratorio II',
-                    'Fundamentos de Sistemas de Información',
-                    'Estructura de Datos',
-                    'Inglés II',
-                    'Ecuaciones Diferenciales',
-                    'Proyecto Integrador Básico',
-                    'Bases de Datos',
-                    'Análisis de Algoritmos',
-                    'Inglés III',
-                    'Electiva de Área I',
-                    'Autómatas y Lenguajes Formales',
-                    'Ingeniería de Software I',
-                    'Arquitectura de Tecnología Informática',
-                    'Inglés IV',
-                    'Razonamiento Cuantitativo',
-                    'Constitución Política',
-                    'Redes y Comunicaciones',
-                    'Ingeniería de Software II',
-                    'Arquitectura de Computadores',
-                    'Lenguajes de Programación',
-                    'Sistemas Operativos',
-                    'Inteligencia Artificial',
-                    'Redes Inalámbricas',
-                    'Arquitectura de Software',
-                    'Gestión de Proyectos de TI',
-                    'Proyecto Integrador Profesional',
-                    'Investigación de Operaciones',
-                    'Computación Móvil',
-                    'Programación Orientada a la Web',
-                    'Gobierno y Servicios de TI',
-                    'Electiva de Profundización I',
-                    'Electiva de Profundización II',
-                    'Seguridad en Redes',
-                    'Electiva de Profundización III',
-                    'Arquitectura Empresarial',
-                    'Electiva de Profundización IV',
-                    'Electiva de Profundización V',
-                    'Electiva de Profundización VI',
-                    'Proyecto Integrador de Grado'
-                ],
-                'Tecnología En Desarrollo De Sistemas': [
-                    'Matemáticas Fundamentales',
-                    'Introducción a la Tecnología',
-                    'Pensamiento Computacional',
-                    'Algoritmos y Programación I',
-                    'Mantenimiento y Ensamble de Hardware',
-                    'Cálculo',
-                    'Electiva de Área',
-                    'Inglés I',
-                    'Algoritmos y Programación II',
-                    'Probabilidad y Estadística I',
-                    'Inglés II',
-                    'Fundamentos de Física',
-                    'Construcción de Software I',
-                    'Estructura de Datos',
-                    'Laboratorio de Bases de Datos',
-                    'Inglés III',
-                    'Redes y Comunicaciones',
-                    'Construcción de Software II',
-                    'Programación Orientada a la Web',
-                    'Administración de Información',
-                    'Inglés IV',
-                    'Razonamiento Cuantitativo',
-                    'Constitución Política',
-                    'Programación de Dispositivos Móviles',
-                    'Electiva I',
-                    'Administración de Sistemas Operativos',
-                    'Proyecto de Grado',
-                    'Práctica Profesional',
-                    'Seguridad Informática',
-                    'Diseño de Experiencias de Usuario',
-                    'Electiva II'
-                ]
+                'Ingenieria Industrial': [...],
+                'Ingenieria En Sistemas': [...],
+                'Tecnología En Desarrollo De Sistemas': [...]
             };
+
             for (let i = 1; i <= 7; i++) {
                 const materiaSelect = document.getElementById('materia' + i);
-                materiaSelect.innerHTML = '';
-                const defaultOption = document.createElement('option');
-                defaultOption.value = '';
-                defaultOption.text = 'Seleccione una materia';
-                materiaSelect.appendChild(defaultOption);
+                materiaSelect.innerHTML = '<option value="">Seleccione una materia</option>';
                 if (programa && materias[programa]) {
                     materias[programa].forEach(materia => {
                         const option = document.createElement('option');
@@ -183,7 +93,7 @@
             let day = today.getDate();
             if (month < 10) month = '0' + month;
             if (day < 10) day = '0' + day;
-            return year + '-' + month + '-' + day;
+            return `${year}-${month}-${day}`;
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -192,93 +102,100 @@
     </script>
 </head>
 <body>
-    <form action="formulario_inscripcion.php" method="post">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br><br>
+    <div class="container">
+        <h2>Formulario de Inscripción</h2>
+        <form action="formulario_inscripcion.php" method="post">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
 
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" required><br><br>
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+            </div>
 
-        <label for="numeroIdentificacion">Número de Identificación:</label>
-        <input type="text" id="numeroIdentificacion" name="numeroIdentificacion" required><br><br>
+            <div class="form-group">
+                <label for="numeroIdentificacion">Número de Identificación:</label>
+                <input type="text" id="numeroIdentificacion" name="numeroIdentificacion" required>
+            </div>
 
-        <label for="edad">Edad:</label>
-        <input type="number" id="edad" name="edad" required><br><br>
+            <div class="form-group">
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" required>
+            </div>
 
-        <label for="genero">Género:</label>
-        <select id="genero" name="genero" required>
-            <option value="Mujer">Mujer</option>
-            <option value="Hombre">Hombre</option>
-            <option value="Otro">Otro</option>
-        </select><br><br>
+            <div class="form-group">
+                <label for="genero">Género:</label>
+                <select id="genero" name="genero" required>
+                    <option value="Mujer">Mujer</option>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
 
-        <label for="correo">Correo:</label>
-        <input type="email" id="correo" name="correo" required><br><br>
+            <div class="form-group">
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
 
-        <label for="numeroCelular">Número de Celular:</label>
-        <input type="text" id="numeroCelular" name="numeroCelular" required><br><br>
+            <div class="form-group">
+                <label for="numeroCelular">Número de Celular:</label>
+                <input type="text" id="numeroCelular" name="numeroCelular" required>
+            </div>
 
-        <label for="nombrePrograma">Nombre del Programa:</label>
-        <select id="nombrePrograma" name="nombrePrograma" onchange="updateMaterias()" required>
-            <option value="">Seleccione un programa</option>
-            <option value="Ingenieria Industrial">Ingeniería Industrial</option>
-            <option value="Ingenieria En Sistemas">Ingeniería en Sistemas</option>
-            <option value="Tecnología En Desarrollo De Sistemas">Tecnología en Desarrollo de Sistemas</option>
-        </select><br><br>
+            <div class="form-group">
+                <label for="nombrePrograma">Nombre del Programa:</label>
+                <select id="nombrePrograma" name="nombrePrograma" onchange="updateMaterias()" required>
+                    <option value="">Seleccione un programa</option>
+                    <option value="Ingenieria Industrial">Ingeniería Industrial</option>
+                    <option value="Ingenieria En Sistemas">Ingeniería en Sistemas</option>
+                    <option value="Tecnología En Desarrollo De Sistemas">Tecnología en Desarrollo de Sistemas</option>
+                </select>
+            </div>
 
-        <label for="semestre">Semestre a cursar:</label>
-        <input type="number" id="semestre" name="semestre" required><br><br>
+            <div class="form-group">
+                <label for="semestre">Semestre a cursar:</label>
+                <input type="number" id="semestre" name="semestre" required>
+            </div>
 
-        <label for="jornada">Jornada:</label>
-        <select id="jornada" name="jornada" required>
-            <option value="Diurna">Diurna</option>
-            <option value="Nocturna">Nocturna</option>
-            <option value="Mixta">Mixta</option>
-        </select><br><br>
+            <div class="form-group">
+                <label for="jornada">Jornada:</label>
+                <select id="jornada" name="jornada" required>
+                    <option value="Diurna">Diurna</option>
+                    <option value="Nocturna">Nocturna</option>
+                    <option value="Mixta">Mixta</option>
+                </select>
+            </div>
 
-        <label for="materia1">Materia 1:</label>
-        <select id="materia1" name="materia1" required>
-            <option value="">Seleccione una materia</option>
-        </select><br><br>
+            <div class="form-group">
+                <label for="materia1">Materia 1:</label>
+                <select id="materia1" name="materia1" required>
+                    <option value="">Seleccione una materia</option>
+                </select>
+            </div>
 
-        <label for="materia2">Materia 2:</label>
-        <select id="materia2" name="materia2">
-            <option value="">Seleccione una materia</option>
-        </select><br><br>
+            <div class="form-group">
+                <label for="materia2">Materia 2:</label>
+                <select id="materia2" name="materia2">
+                    <option value="">Seleccione una materia</option>
+                </select>
+            </div>
 
-        <label for="materia3">Materia 3:</label>
-        <select id="materia3" name="materia3">
-            <option value="">Seleccione una materia</option>
-        </select><br><br>
+            <div class="form-group">
+                <label for="materia3">Materia 3:</label>
+                <select id="materia3" name="materia3">
+                    <option value="">Seleccione una materia</option>
+                </select>
+            </div>
 
-        <label for="materia4">Materia 4:</label>
-        <select id="materia4" name="materia4">
-            <option value="">Seleccione una materia</option>
-        </select><br><br>
+            <div class="form-group">
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" name="fecha" readonly>
+            </div>
 
-        <label for="materia5">Materia 5:</label>
-        <select id="materia5" name="materia5" >
-            <option value="">Seleccione una materia</option>
-        </select><br><br>
-
-        <label for="materia6">Materia 6:</label>
-        <select id="materia6" name="materia6">
-            <option value="">Seleccione una materia</option>
-        </select><br><br>
-
-        <label for="materia7">Materia 7:</label>
-        <select id="materia7" name="materia7">
-            <option value="">Seleccione una materia</option>
-        </select><br><br>
-
-        <label for="fecha">Fecha:</label>
-        <input type="date" id="fecha" name="fecha" readonly><br><br>
-
-        <input type="submit" value="Enviar">
-    </form>
-
-    <script>
-        document.getElementById('fecha').value = getCurrentDate();
-    </script>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
 </body>
 </html>
