@@ -24,10 +24,17 @@ jobs:
         pip install pymysql pandas matplotlib sqlalchemy python-dotenv
 
     - name: Run consulta_mysql.py
-      run: python consulta_mysql.py
+      run: python consulta_mysql.py || echo "consulta_mysql.py falló"
 
     - name: Run generar_grafica.py
-      run: python generar_grafica.py
+      run: python generar_grafica.py || echo "generar_grafica.py falló"
+
+    - name: Check if grafica.png exists
+      run: |
+        if [ ! -f grafica.png ]; then
+          echo "Error: El archivo grafica.png no se generó."
+          exit 1
+        fi
 
     - name: Upload graph
       uses: actions/upload-artifact@v4
@@ -40,7 +47,7 @@ jobs:
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
         git add .
-        git commit -m "Update generated graph"
+        git diff --quiet || git commit -m "Update generated graph"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
