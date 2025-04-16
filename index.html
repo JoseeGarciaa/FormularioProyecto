@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Inscripción</title>
+    <title>Formulario de Inscripción USC</title>
     <style>
         /* General Styles */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f7fc;
+            background-color: #e3f2fd; /* Azul claro para el fondo */
             margin: 0;
             padding: 0;
             display: flex;
@@ -18,19 +18,22 @@
         }
 
         .form-container {
-            background-color: #fff;
+            background-color: #ffffff; /* Fondo blanco para el formulario */
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             padding: 30px;
             width: 100%;
             max-width: 600px;
             box-sizing: border-box;
+            border: 2px solid #64b5f6; /* Borde azul claro */
         }
 
         h2 {
             text-align: center;
-            color: #333;
+            color: #1e88e5; /* Título en azul oscuro */
             margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
         }
 
         label {
@@ -49,7 +52,7 @@
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
-            border: 1px solid #ddd;
+            border: 1px solid #90caf9; /* Borde azul claro */
             border-radius: 4px;
             font-size: 14px;
             color: #333;
@@ -61,7 +64,7 @@
         input[type="number"]:focus,
         select:focus,
         input[type="date"]:focus {
-            border-color: #4CAF50;
+            border-color: #1e88e5; /* Azul oscuro cuando está enfocado */
             outline: none;
         }
 
@@ -71,7 +74,7 @@
 
         .button {
             width: 100%;
-            background-color: #4CAF50;
+            background-color: #1e88e5; /* Azul oscuro para el botón */
             color: white;
             font-size: 16px;
             padding: 12px;
@@ -82,7 +85,7 @@
         }
 
         .button:hover {
-            background-color: #45a049;
+            background-color: #1565c0; /* Azul más oscuro al pasar el ratón */
         }
 
         .input-group {
@@ -111,7 +114,7 @@
 
         .form-footer input[type="submit"] {
             cursor: pointer;
-            background-color: #4CAF50;
+            background-color: #1e88e5;
             border-radius: 5px;
             border: none;
             color: white;
@@ -120,7 +123,7 @@
         }
 
         .form-footer input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #1565c0;
         }
 
     </style>
@@ -170,7 +173,7 @@
 </head>
 <body>
     <div class="form-container">
-        <h2>Formulario de Inscripción</h2>
+        <h2>Formulario de Inscripción USC</h2>
         <form action="formulario_inscripcion.php" method="post">
             <div class="input-group">
                 <label for="nombre">Nombre:</label>
@@ -290,7 +293,7 @@
             </div>
 
             <div class="form-footer">
-                <input type="submit" value="Enviar">
+                <input type="submit" class="button" value="Enviar">
             </div>
         </form>
     </div>
