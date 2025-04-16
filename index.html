@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Inscripción</title>
     <style>
+        
+<div id="mensaje-exito" style="display:none; text-align:center; font-size:24px; color:green; margin-top: 30px;">
+  ✅ Registro creado con éxito
+</div>
 
 .banner-img {
   display: block;
@@ -342,5 +346,29 @@ body {
 
         <input type="submit" value="Enviar">
     </form>
+
+    document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault(); // Detiene el envío real
+  
+  // Mostrar mensaje de éxito
+  document.getElementById('mensaje-exito').style.display = 'block';
+  document.querySelector('form').style.display = 'none';
+
+  // Limpiar formulario después de 5 segundos y mostrarlo de nuevo
+  setTimeout(() => {
+    document.getElementById('mensaje-exito').style.display = 'none';
+    document.querySelector('form').reset();
+    document.querySelector('form').style.display = 'block';
+
+    // Reiniciar materias a seleccionar
+    updateMaterias();
+
+    // Volver a colocar la fecha actual
+    document.getElementById('fecha').value = getCurrentDate();
+
+  }, 5000);
+});
+
+    
 </body>
 </html>
