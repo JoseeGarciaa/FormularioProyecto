@@ -6,15 +6,13 @@
     <title>Formulario de Inscripción</title>
     <style>
 
-    .logo-pequeno {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 101%;      /* Ocupa todo el ancho disponible */
-  height: 190px;     /* Alto fijo, puedes ajustar a lo que necesites */
-  object-fit: cover; /* O 'contain' según lo que prefieras */
-  z-index: -1;
+ .banner-img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
 }
+
 
         
         
@@ -268,7 +266,8 @@ body {
 </head>
 <body>
     
- <img src="Banner-Universidad-Santiago-de-Cali-USC-1.png" class="logo-pequeno">
+<img src="Banner-Universidad-Santiago-de-Cali-USC-1.png" alt="Banner USC" class="banner-img">
+
     
     <h1>Formulario de Inscripción USC</h1>
     <form action="formulario_inscripcion.php" method="post">
