@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso USC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #cce7ff, #e6f3ff);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #004080;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 64, 128, 0.2);
+            width: 320px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #004080;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #cce0ff;
+            border-radius: 8px;
+            box-sizing: border-box;
+            background-color: #f9fcff;
+        }
+        input[type="button"] {
+            background-color: #004080;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        input[type="button"]:hover {
+            background-color: #0066cc;
+        }
+    </style>
+    <script>
+        function login() {
+            const usuario = document.getElementById('loginUsuario').value;
+            const contraseña = document.getElementById('loginPassword').value;
+
+            // Simple validación local (para pruebas)
+            if (usuario === localStorage.getItem('usuario') && contraseña === localStorage.getItem('contraseña')) {
+                window.location.href = "formulario.html"; // Cambia esto por la ruta de tu formulario
+            } else {
+                alert("Usuario o contraseña incorrectos.");
+            }
+        }
+
+        function register() {
+            const usuario = document.getElementById('registroUsuario').value;
+            const contraseña = document.getElementById('registroPassword').value;
+            const correo = document.getElementById('registroCorreo').value;
+
+            if (usuario && contraseña && correo) {
+                localStorage.setItem('usuario', usuario);
+                localStorage.setItem('contraseña', contraseña);
+                localStorage.setItem('correo', correo);
+                alert("Registro exitoso, ahora inicia sesión.");
+            } else {
+                alert("Por favor completa todos los campos.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Bienvenido a USC</h1>
+
+    <div class="card">
+        <h2>Login</h2>
+        <label for="loginUsuario">Usuario:</label>
+        <input type="text" id="loginUsuario">
+
+        <label for="loginPassword">Contraseña:</label>
+        <input type="password" id="loginPassword">
+
+        <input type="button" value="Iniciar Sesión" onclick="login()">
+    </div>
+
+    <div class="card">
+        <h2>Registro</h2>
+        <label for="registroUsuario">Usuario:</label>
+        <input type="text" id="registroUsuario">
+
+        <label for="registroCorreo">Correo:</label>
+        <input type="email" id="registroCorreo">
+
+        <label for="registroPassword">Contraseña:</label>
+        <input type="password" id="registroPassword">
+
+        <input type="button" value="Registrarse" onclick="register()">
+    </div>
+
+</body>
+</html>
