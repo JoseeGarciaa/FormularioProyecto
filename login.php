@@ -1,48 +1,41 @@
 <?php
-// Parámetros de conexión desde variables de entorno
+session_start();
+
+// Conexión
 $servername = getenv('DB_HOST');
 $username = getenv('DB_USER');
 $password = getenv('DB_PASSWORD');
 $dbname = getenv('DB_NAME');
 $port = getenv('DB_PORT');
 
-// Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
-
-// Verificar conexión
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Iniciar sesión
-session_start();
-
-// Verificar si se recibió POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $numeroDocumento = mysqli_real_escape_string($conn, $_POST['numero_documento']);
-    $contrasena = mysqli_real_escape_string($conn, $_POST['contraseña']);
+    $correo = mysqli_real_escape_string($conn, $_POST['correo']);
+    $contrasena = mysqli_real_escape_string($conn, $_POST['contrasena']);
 
-    // Consultar usuario en la base de datos
-    $sql = "SELECT * FROM Usuarios WHERE numeroIdentificacion = '$numeroDocumento'";
+    $sql = "SELECT * FROM Usuarios WHERE correo='$correo'";
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-        // Obtener los datos del usuario
+    if ($result->num_rows === 1) {
         $usuario = $result->fetch_assoc();
-
-        // Verificar la contraseña
+        // Verificar contraseña
         if (password_verify($contrasena, $usuario['contrasena'])) {
-            // Contraseña correcta, iniciar sesión
-            $_SESSION['usuario'] = $usuario['numeroIdentificacion'];
-            header('Location: dashboard.php');  // Redirigir al panel del usuario
+            // Guardar datos en sesión
+            $_SESSION['nombre'] = $usuario['nombre'];
+            $_SESSION['apellido'] = $usuario['apellido'];
+            $_SESSION['numeroIdentificacion'] = $usuario['numeroIdentificacion'];
+
+            header("Location: bienvenida.php");
             exit();
         } else {
-            // Contraseña incorrecta
             echo "<div style='color:red; text-align:center;'>Contraseña incorrecta.</div>";
         }
     } else {
-        // Usuario no encontrado
-        echo "<div style='color:red; text-align:center;'>Usuario no encontrado.</div>";
+        echo "<div style='color:red; text-align:center;'>Correo no encontrado.</div>";
     }
 
     $conn->close();
