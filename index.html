@@ -6,67 +6,109 @@
     <title>Acceso USC</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #cce7ff, #e6f3ff);
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
         }
-        h1 {
-            color: #004080;
-            margin-bottom: 30px;
-        }
-        .card {
+
+        .container {
             background: #ffffff;
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 64, 128, 0.2);
-            width: 320px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 64, 128, 0.3);
+            width: 360px;
+            text-align: center;
+            animation: fadeIn 0.8s ease;
+        }
+
+        h1 {
+            color: #004080;
             margin-bottom: 20px;
         }
+
+        button {
+            background-color: #004080;
+            color: white;
+            padding: 12px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 140px;
+        }
+
+        button:hover {
+            background-color: #0066cc;
+        }
+
+        .form {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             color: #004080;
             font-weight: bold;
         }
+
         input[type="text"],
         input[type="password"],
         input[type="email"] {
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border: 1px solid #cce0ff;
             border-radius: 8px;
-            box-sizing: border-box;
             background-color: #f9fcff;
+            box-sizing: border-box;
         }
+
         input[type="button"] {
             background-color: #004080;
             color: white;
-            padding: 12px 20px;
+            padding: 10px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             width: 100%;
             font-size: 16px;
         }
+
         input[type="button"]:hover {
             background-color: #0066cc;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
+
     <script>
+        function mostrarFormulario(tipo) {
+            document.getElementById('opciones').style.display = 'none';
+            if (tipo === 'login') {
+                document.getElementById('loginForm').style.display = 'block';
+            } else {
+                document.getElementById('registroForm').style.display = 'block';
+            }
+        }
+
         function login() {
             const usuario = document.getElementById('loginUsuario').value;
             const contraseña = document.getElementById('loginPassword').value;
 
-            // Simple validación local (para pruebas)
             if (usuario === localStorage.getItem('usuario') && contraseña === localStorage.getItem('contraseña')) {
-                window.location.href = "formulario.html"; // Cambia esto por la ruta de tu formulario
+                window.location.href = "formulario.html";
             } else {
                 alert("Usuario o contraseña incorrectos.");
             }
@@ -74,35 +116,46 @@
 
         function register() {
             const usuario = document.getElementById('registroUsuario').value;
-            const contraseña = document.getElementById('registroPassword').value;
             const correo = document.getElementById('registroCorreo').value;
+            const contraseña = document.getElementById('registroPassword').value;
 
-            if (usuario && contraseña && correo) {
+            if (usuario && correo && contraseña) {
                 localStorage.setItem('usuario', usuario);
                 localStorage.setItem('contraseña', contraseña);
                 localStorage.setItem('correo', correo);
-                alert("Registro exitoso, ahora inicia sesión.");
+                alert("¡Registro exitoso! Ahora inicia sesión.");
+                location.reload();
             } else {
                 alert("Por favor completa todos los campos.");
             }
         }
     </script>
 </head>
+
 <body>
+
+<div class="container">
     <h1>Bienvenido a USC</h1>
 
-    <div class="card">
-        <h2>Login</h2>
+    <div id="opciones">
+        <button onclick="mostrarFormulario('login')">Iniciar Sesión</button>
+        <button onclick="mostrarFormulario('registro')">Registrarme</button>
+    </div>
+
+    <!-- Login -->
+    <div id="loginForm" class="form">
+        <h2>Iniciar Sesión</h2>
         <label for="loginUsuario">Usuario:</label>
         <input type="text" id="loginUsuario">
 
         <label for="loginPassword">Contraseña:</label>
         <input type="password" id="loginPassword">
 
-        <input type="button" value="Iniciar Sesión" onclick="login()">
+        <input type="button" value="Ingresar" onclick="login()">
     </div>
 
-    <div class="card">
+    <!-- Registro -->
+    <div id="registroForm" class="form">
         <h2>Registro</h2>
         <label for="registroUsuario">Usuario:</label>
         <input type="text" id="registroUsuario">
@@ -113,8 +166,10 @@
         <label for="registroPassword">Contraseña:</label>
         <input type="password" id="registroPassword">
 
-        <input type="button" value="Registrarse" onclick="register()">
+        <input type="button" value="Registrarme" onclick="register()">
     </div>
+
+</div>
 
 </body>
 </html>
