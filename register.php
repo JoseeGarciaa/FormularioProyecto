@@ -1,8 +1,5 @@
 <?php
-// Iniciar sesión para manejar futuras sesiones de usuario
-session_start();
-
-// Conexión usando variables de entorno (igual que tú tienes)
+// Parámetros de conexión desde variables de entorno
 $servername = getenv('DB_HOST');
 $username = getenv('DB_USER');
 $password = getenv('DB_PASSWORD');
@@ -17,9 +14,8 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Verificar si se recibió una solicitud POST
+// Verificar si se recibió POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recoger los datos enviados a través de POST y sanitizarlos
     $nombre = mysqli_real_escape_string($conn, $_POST['nombre']);
     $apellido = mysqli_real_escape_string($conn, $_POST['apellido']);
     $numeroIdentificacion = mysqli_real_escape_string($conn, $_POST['numeroIdentificacion']);
@@ -31,29 +27,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($contrasena !== $confirmarContrasena) {
         echo "<div style='color:red; text-align:center;'>Las contraseñas no coinciden.</div>";
     } else {
-        // Cifrar la contraseña antes de guardarla
-        $contrasenaHash = password_hash($contrasena, PASSWORD_DEFAULT);
+        // Encriptar contraseña
+        $hashContrasena = password_hash($contrasena, PASSWORD_DEFAULT);
 
-        // Verificar que no exista un usuario con la misma identificación o correo
-        $checkSql = "SELECT * FROM usuarios WHERE numeroIdentificacion='$numeroIdentificacion' OR correo='$correo'";
-        $result = $conn->query($checkSql);
+        // Insertar en tabla Usuarios
+        $sql = "
+            INSERT INTO Usuarios (nombre, apellido, numeroIdentificacion, correo, contrasena)
+            VALUES ('$nombre', '$apellido', '$numeroIdentificacion', '$correo', '$hashContrasena')
+        ";
 
-        if ($result->num_rows > 0) {
-            echo "<div style='color:red; text-align:center;'>El número de identificación o correo ya está registrado.</div>";
+        if ($conn->query($sql) === TRUE) {
+            echo "<div style='color:green; text-align:center;'>¡Usuario registrado con éxito!</div>";
         } else {
-            // Insertar nuevo usuario en la base de datos
-            $sql = "INSERT INTO usuarios (nombre, apellido, numeroIdentificacion, correo, contrasena)
-                    VALUES ('$nombre', '$apellido', '$numeroIdentificacion', '$correo', '$contrasenaHash')";
-
-            if ($conn->query($sql) === TRUE) {
-                echo "<div style='color:green; text-align:center;'>¡Registro exitoso! <a href='login.html'>Inicia sesión aquí</a></div>";
-            } else {
-                echo "<div style='color:red; text-align:center;'>Error al registrar usuario: " . $conn->error . "</div>";
-            }
+            echo "<div style='color:red; text-align:center;'>Error: " . $conn->error . "</div>";
         }
     }
 
-    // Cerrar la conexión
     $conn->close();
 }
 ?>
