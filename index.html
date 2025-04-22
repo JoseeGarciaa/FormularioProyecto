@@ -2,196 +2,32 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acceso USC</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #cce7ff, #e6f3ff);
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    .container {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 64, 128, 0.3);
-      width: 360px;
-      text-align: center;
-      animation: fadeIn 0.8s ease;
-    }
-
-    h1 {
-      color: #004080;
-      margin-bottom: 20px;
-    }
-
-    button {
-      background-color: #004080;
-      color: white;
-      padding: 12px 20px;
-      margin: 10px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 16px;
-      width: 140px;
-    }
-
-    button:hover {
-      background-color: #0066cc;
-    }
-
-    .form {
-      display: none;
-      margin-top: 20px;
-      text-align: left;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-      color: #004080;
-      font-weight: bold;
-    }
-
-    input[type="text"],
-    input[type="password"],
-    input[type="email"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #cce0ff;
-      border-radius: 8px;
-      background-color: #f9fcff;
-      box-sizing: border-box;
-    }
-
-    input[type="button"] {
-      background-color: #004080;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      width: 100%;
-      font-size: 16px;
-    }
-
-    input[type="button"]:hover {
-      background-color: #0066cc;
-    }
-
-    .back-btn {
-      background-color: #999999;
-      margin-top: 10px;
-      width: auto;
-      padding: 8px 16px;
-    }
-
-    .back-btn:hover {
-      background-color: #777777;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-
-  <script>
-    function mostrarFormulario(tipo) {
-      document.getElementById('opciones').style.display = 'none';
-      document.getElementById('loginForm').style.display = 'none';
-      document.getElementById('registroForm').style.display = 'none';
-
-      if (tipo === 'login') {
-        document.getElementById('loginForm').style.display = 'block';
-      } else if (tipo === 'registro') {
-        document.getElementById('registroForm').style.display = 'block';
-      }
-    }
-
-    function volverAInicio() {
-      document.getElementById('opciones').style.display = 'block';
-      document.getElementById('loginForm').style.display = 'none';
-      document.getElementById('registroForm').style.display = 'none';
-    }
-
-    function login() {
-      const usuario = document.getElementById('loginUsuario').value;
-      const contraseña = document.getElementById('loginPassword').value;
-
-      if (usuario === localStorage.getItem('usuario') && contraseña === localStorage.getItem('contraseña')) {
-        window.location.href = "formulario.html";
-      } else {
-        alert("Usuario o contraseña incorrectos.");
-      }
-    }
-
-    function register() {
-      const usuario = document.getElementById('registroUsuario').value;
-      const correo = document.getElementById('registroCorreo').value;
-      const contraseña = document.getElementById('registroPassword').value;
-
-      if (usuario && correo && contraseña) {
-        localStorage.setItem('usuario', usuario);
-        localStorage.setItem('contraseña', contraseña);
-        localStorage.setItem('correo', correo);
-        alert("¡Registro exitoso! Ahora inicia sesión.");
-        location.reload();
-      } else {
-        alert("Por favor completa todos los campos.");
-      }
-    }
-  </script>
+  <title>Universidad Santiago de Cali</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
-
 <body>
+  <img src="img/Banner-Universidad-Santiago-de-Cali-USC-1.png" alt="Banner USC" class="banner-img">
 
-<div class="container">
-  <h1>Bienvenido a USC</h1>
+  <h1>Bienvenido a la Universidad Santiago de Cali</h1>
 
-  <div id="opciones">
-    <button onclick="mostrarFormulario('login')">Iniciar Sesión</button>
-    <button onclick="mostrarFormulario('registro')">Registrarme</button>
+  <div class="botones">
+    <a href="login.html" class="btn">Iniciar Sesión</a>
+    <a href="registro.html" class="btn">Registrarse</a>
   </div>
 
-  <!-- Login -->
-  <div id="loginForm" class="form">
-    <h2>Iniciar Sesión</h2>
-    <label for="loginUsuario">Usuario:</label>
-    <input type="text" id="loginUsuario">
-
-    <label for="loginPassword">Contraseña:</label>
-    <input type="password" id="loginPassword">
-
-    <input type="button" value="Ingresar" onclick="login()">
-    <button class="back-btn" onclick="volverAInicio()">⬅️ Atrás</button>
+  <div class="info">
+    <h2>Sobre nosotros</h2>
+    <p>La Universidad Santiago de Cali ofrece programas académicos de alta calidad, con enfoque en la innovación, investigación y responsabilidad social...</p>
+    
+    <h3>Nuestros programas:</h3>
+    <ul>
+      <li>Ingeniería Industrial</li>
+      <li>Ingeniería en Sistemas</li>
+      <li>Ingeniería en Energías</li>
+      <li>Ingeniería Electrónica</li>
+      <li>Tecnología en Desarrollo de Sistemas</li>
+    </ul>
   </div>
-
-  <!-- Registro -->
-  <div id="registroForm" class="form">
-    <h2>Registro</h2>
-    <label for="registroUsuario">Usuario:</label>
-    <input type="text" id="registroUsuario">
-
-    <label for="registroCorreo">Correo:</label>
-    <input type="email" id="registroCorreo">
-
-    <label for="registroPassword">Contraseña:</label>
-    <input type="password" id="registroPassword">
-
-    <input type="button" value="Registrarme" onclick="register()">
-    <button class="back-btn" onclick="volverAInicio()">⬅️ Atrás</button>
-  </div>
-
-</div>
 
 </body>
 </html>
