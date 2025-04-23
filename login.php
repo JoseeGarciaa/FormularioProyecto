@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['apellido'] = $usuario['apellido'];
             $_SESSION['numeroIdentificacion'] = $usuario['numeroIdentificacion'];
 
-            header("Location: bienvenida.php");
+            header("Location: indexform.html");
             exit();
         } else {
             echo "<div style='color:red; text-align:center;'>Contraseña incorrecta.</div>";
